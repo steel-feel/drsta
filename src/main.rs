@@ -1,6 +1,5 @@
 use clap::{Parser, ValueEnum};
 
-
 #[derive(Copy, Clone,Debug, PartialEq, Eq, PartialOrd, Ord, ValueEnum)]
 enum Converters {
     /// convert to hex
@@ -24,13 +23,7 @@ struct Cli {
 
 fn main() {
    let args = Cli::parse();
- 
-   
-   /*
-       let without_prefix = raw.trim_start_matches("0x");
-    let z = i64::from_str_radix(without_prefix, 16);
-   
-   */
+
 match args.to {
     Converters::Hex => println!("{:x}", args.value.parse::<i64>().unwrap()  ),
     Converters::Dec => println!("{:?}", i64::from_str_radix(args.value.trim_start_matches("0x") ,16).unwrap() ),
