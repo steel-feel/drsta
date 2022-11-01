@@ -1,21 +1,33 @@
 # drsta
-Simple utility to convert type
+**drsta** is a _Sanskrit_ term which simply means perceived, observed or known. 
+Its a cli tool to convert one type to another. 
 
 ## Usage
 
-Download binary via release page
+> Download binary via release page
 
 ```bash
 
-./drsta -v <value> -t <converting to>
+drsta -v <value> -t <converting to>
 
 ```
 
--v , Value to be converted, optional: if not supplied,it
+### Options
+
+#### v , value
+Value to be converted, if not used,it
      will take value from clipboard
--t , Target type possible values;
+     
+#### t , to
+Target type possible values;
      *dec*: for decimal, 
      *hex*: for hexadecimal
 
 
-Future relase will include many type.     
+## Example
+
+```bash
+drsta -v 1000 -t hex
+```
+
+## Future releases will include many type.     
