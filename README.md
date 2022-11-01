@@ -3,7 +3,7 @@ Simple utility to convert type
 
 ## Usage
 
-download binary via release page
+Download binary via release page
 
 ```bash
 
@@ -11,9 +11,11 @@ download binary via release page
 
 ```
 
--v , Value to be converted
+-v , Value to be converted, optional: if not supplied,it
+     will take value from clipboard
 -t , Target type possible values;
      *dec*: for decimal, 
      *hex*: for hexadecimal
+
 
 Future relase will include many type.     
