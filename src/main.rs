@@ -1,8 +1,12 @@
 use clap::{Parser, ValueEnum};
 
+
 #[derive(Copy, Clone,Debug, PartialEq, Eq, PartialOrd, Ord, ValueEnum)]
 enum Converters {
-    Hex
+    /// convert to hex
+    Hex,
+    // convert to num
+    Dec
 }
 
 /// Drsta CLI for converstion
@@ -11,7 +15,7 @@ enum Converters {
 struct Cli {
    ///Value to convert
    #[arg(short, long)]
-   value: u128,
+   value: String,
 
    ///Type to convert
    #[arg(short, long,value_enum)]
@@ -20,7 +24,18 @@ struct Cli {
 
 fn main() {
    let args = Cli::parse();
+ 
    
-   println!("{}", args.to);
+   /*
+       let without_prefix = raw.trim_start_matches("0x");
+    let z = i64::from_str_radix(without_prefix, 16);
+   
+   */
+match args.to {
+    Converters::Hex => println!("{:x}", args.value.parse::<i64>().unwrap()  ),
+    Converters::Dec => println!("{:?}", i64::from_str_radix(args.value.trim_start_matches("0x") ,16).unwrap() ),
+    _ => println!("could not convert")
+}
+
 
 }
